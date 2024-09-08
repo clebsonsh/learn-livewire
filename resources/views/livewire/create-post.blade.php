@@ -13,6 +13,9 @@
         <label class="space-x-4">
             <span>Content</span>
             <input wire:model="content" type="text" class="text-slate-800">
+            <small>Characters:
+                <span x-text="$wire.content.length"></span>
+            </small>
             @error('content')
                 <em>{{ $message }}</em>
             @enderror
