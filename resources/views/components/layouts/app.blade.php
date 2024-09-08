@@ -14,6 +14,7 @@
         <a href="/" @class(['font-bold' => request()->is('/')])>Todos</a>
         <a href="/counter" @class(['font-bold' => request()->is('counter')])>Counter</a>
         <a href="/posts" @class(['font-bold' => request()->is('posts')])>Show Posts</a>
+        <a href="/posts/create" @class(['font-bold' => request()->is('posts/create')])>Create Post</a>
     </nav>
     <div class="ml-32 w-full">
         {{ $slot }}
