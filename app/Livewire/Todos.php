@@ -12,29 +12,22 @@ class Todos extends Component
 {
     public string $todo = '';
 
-    public Collection $todos;
-
-    public function mount()
-    {
-        $this->todos = Todo::query()
-            ->latest()
-            ->get();
-    }
-
     public function add()
     {
-        $todo = Todo::factory()
+        Todo::factory()
             ->create([
                 'title' => $this->todo,
             ]);
-
-        $this->todos->prepend($todo);
 
         $this->reset('todo');
     }
 
     public function render()
     {
-        return view('livewire.todos');
+        return view('livewire.todos', [
+            'todos' => Todo::query()
+                ->latest()
+                ->get(),
+        ]);
     }
 }
